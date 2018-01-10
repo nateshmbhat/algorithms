@@ -2,7 +2,6 @@
 
 using namespace std ; 
 
-
 void prime_factors(int n )
 {
     while(n%2==0)
@@ -21,7 +20,6 @@ void prime_factors(int n )
     }
 
     if(n>1) cout<<n ;
-    
 }
 
 
