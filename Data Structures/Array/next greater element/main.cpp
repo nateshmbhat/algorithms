@@ -2,7 +2,6 @@
 #include<stack>
 #include<list>
 
-
 using namespace std ; 
 
 int main(void)
@@ -12,6 +11,17 @@ int main(void)
     int n = sizeof(a)/sizeof(a[0]) ; 
     int out[100] ; 
 
-    int max_yet = a[n-1] ; 
+    stack S ;
+    S.push(a[n-1]) ;
+
+    for(int i =n-1 ; i>=0 ; i)
+    {
+            if(a[i]>max_yet)
+            {
+                
+            }
+
+        S.push(max_yet) ;
+    }
 
 }
