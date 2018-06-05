@@ -3,46 +3,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Bash on Windows Launch",
-            "type": "cppdbg",
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/main.exe",
+            "program": "${fileDirname}/a.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${fileDirname}",
             "environment": [],
-            "externalConsole": true,
-            "pipeTransport": {
-                "debuggerPath": "/usr/bin/gdb",
-                "pipeProgram": "C:\\Windows\\sysnative\\bash.exe",
-                "pipeArgs": [],
-                "pipeCwd": ""
-            },
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
-        },
-    //     {
-    //         "name": "(Windows) Attach",
-    //         "type": "cppvsdbg",
-    //         "request": "attach",
-    //         "processId": "${command:pickProcess}"
-    //     },
-    //     {
-    //         "name": "(Windows) Launch",
-    //         "type": "cppvsdbg",
-    //         "request": "launch",
-    //         "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
-    //         "args": [],
-    //         "stopAtEntry": false,
-    //         "cwd": "${fileDirname}",
-    //         "environment": [],
-    //         "externalConsole": true
-    //     }
-
-    // ]
+            "externalConsole": true
+        }
+    ]
 }
