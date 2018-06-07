@@ -1,5 +1,9 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+
+#include "../utils.h"
+
 using namespace std  ; 
+
 
 void Matrixspiral(vector<vector<int>> M)
 {
@@ -20,15 +24,15 @@ void Matrixspiral(vector<vector<int>> M)
             dir = (dir+1)%4 ;
             nextx = x + shift[dir][0] , nexty = y+ shift[dir][1] ; 
         }
-        x = nextx  , y = nexty ; 
+        x = nextx  , y = nexty ;
     }
 }
 
 
 int main()
 {
-
-    vector<vector<int>> M = {{1 , 2, 3} , {4 , 5, 6} , {7 , 8 , 9 }} ; 
-    Matrixspiral(M) ;
-    
+    Matrix obj = Matrix(3 , 3) ; 
+    obj.fill() ; 
+    cout<<obj ; 
+    Matrixspiral(obj.M) ; 
 }
