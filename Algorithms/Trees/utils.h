@@ -27,15 +27,16 @@ class Tree
         root = new Node ; 
         root->l = root->r = 0 ;
         root->data = data ; 
+        n = 1 ; 
     }
 
     friend std::ostream& operator<<(std::ostream& , Tree&) ; 
 
-    void inorder(Node *) ;
-    void preorder(Node * ) ; 
+    void inorder(Node * = (Node *) -1 ) ;
+    void preorder(Node * = (Node *) -1 ) ; 
     int findMax(Node * ) ; 
     bool isBST(Node * ) ; 
-    void postorder(Node * ) ; 
+    void postorder(Node * = (Node *) -1 ) ; 
     void insertBST(int ) ;
     Tree generateRandBST(int ) ; 
     Tree generateRandBT(int) ; 

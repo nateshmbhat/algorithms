@@ -1,6 +1,7 @@
-#include "./trees.h"
+#include "utils.h"
 #include<iostream>
 #include<ctime>
+#include<bits/stdc++.h>
 #include<cstdlib>
 using namespace std; 
 
@@ -30,17 +31,28 @@ void Tree::insertBST(int data)
     else parent->r = newnode ; 
 }
 
-void Tree::inorder(Node * root )
+void Tree::inorder(Node * rootvar )
 {
-    if(!root) return  ;     
-    inorder(root->l) ; 
-    cout<<root->data<<" " ; 
-    inorder(root->r) ; 
+    if(!rootvar) return  ;     
+    if(rootvar==(Node *)-1)
+    {
+
+        inorder(this->root) ;
+        return ; 
+    }
+    inorder(rootvar->l) ; 
+    cout<<rootvar->data<<" " ; 
+    inorder(rootvar->r) ; 
 }
 
-void Tree::postorder(Node * root)
+void Tree::postorder(Node * root )
 {
     if(!root) return  ;     
+    if(root==(Node *)-1)
+    {
+        this->postorder(this->root) ; 
+        return ; 
+    }
     postorder(root->l) ; 
     postorder(root->r) ; 
     cout<<root->data<<" " ; 
@@ -50,13 +62,19 @@ void Tree::postorder(Node * root)
 void Tree::preorder(Node * root)
 {
     if(!root) return  ;     
+    if(root==(Node *)-1)
+    {
+
+        this->preorder(this->root) ;
+        return ;
+    }
     cout<<root->data<<" " ; 
     preorder(root->l) ; 
     preorder(root->r) ; 
 }
 
 
-int Tree::findMax(Node * root) 
+int Tree::findMax(Node * root )
 {
     if(!root) return 0 ;
     int l = findMax(root->l) ;
@@ -80,19 +98,36 @@ bool Tree::isBST(Node * root)
 Tree Tree::generateRandBST(int no_of_nodes)
 {
     srand(time(NULL)) ; 
-    Tree T ; 
     for(int i =0 ; i <no_of_nodes ; i++)
     {
-        int n = rand()%250 ; 
-        if(n<=0 ) 
-            n = rand()%5 + 1 ; 
-        T.insertBST(n) ; 
+        int nvar = rand()%250 ; 
+        if(nvar<=0 ) 
+            nvar = rand()%5 + 1 ; 
+        this->insertBST(nvar) ; 
     }
-    return T ; 
+
+    return *this ; 
 }
 
-ostream& operator<<(ostream& out, Tree& T)
+Tree Tree::generateRandBT(int no_of_nodes)
 {
-    T.inorder(T.root) ; 
-    return out ; 
+    if(no_of_nodes) ; 
+}
+
+
+ostream& operator<<(ostream& out, Tree& T)
+{ 
+    deque<Node *> Q ; 
+    Q.emplace_back(T.root) ; 
+    
+}
+
+
+ostream& operator<<(ostream& out , Node * root)
+{
+    if(!root) return out ;
+
+    cout<<root->data<<"  ---  " ; 
+    cout<<root->l ;
+    cout<<root->r <<endl;  
 }
