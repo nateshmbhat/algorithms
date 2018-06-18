@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std; 
 
+#pragma once 
 struct Node
 {
     int data ; 
@@ -11,10 +12,13 @@ struct Node
 class myList{
 
     Node * first , * head ;
-    Node * get_first() ; 
 
     public : 
-    myList(int data ) ; 
+
+    myList(int =0 ) ; 
+    void setFirst(Node * ) ; 
+    Node * get_first() ; 
+    Node * populateList(int , int =0  , int  = 30) ; 
 
     Node * append(int data) ; 
 

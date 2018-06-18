@@ -14,14 +14,25 @@ void linkswap(Node * l1 , Node * l2 , Node * parent)
 
 
 myList::myList(int data ){
+    srand(time(NULL)) ; 
     head = new Node ; 
     head->data = 0 ;
-    first = new Node ; 
-    first->data = data ; 
-    first->next = 0 ; 
-
-    head->next = first ; 
+    head->next = 0 ; 
+    first =0 ; 
 }
+
+void myList::setFirst(Node * firstvar){first = firstvar ; }
+
+    Node * myList::populateList(int n , int l , int h )
+    {
+
+        for(int i =0 ; i< n ; i++)
+        {
+            this->append(rand()%(h-l+1) + l) ; 
+        }
+
+        return get_first() ; 
+    }
 
     Node * myList::get_first(){return first ; }
 
@@ -37,6 +48,8 @@ myList::myList(int data ){
        if(!first) this->first = newnode ; 
        else 
            temp->next = newnode ; 
+
+        head->next = first ;
        return this->first ; 
     }
 
@@ -49,6 +62,7 @@ myList::myList(int data ){
         this->first = newnode ; 
         head->next = first ; 
         head->data++ ; 
+        head->next = first ; 
         return this->first ; 
     }
 
@@ -72,6 +86,7 @@ myList::myList(int data ){
         parent->next = 0 ; 
         delete temp ; 
         head->data-- ; 
+        head->next = first ; 
         return first ; 
     }
 
@@ -87,6 +102,7 @@ myList::myList(int data ){
             first = first->next ; 
             delete temp ; 
             head->data-=1 ; 
+            head->next = first ; 
             return first ; 
         }
     }
@@ -110,6 +126,7 @@ myList::myList(int data ){
             head->data-=1 ; 
             delete temp ; 
         }
+        head->next = first ; 
         return first ; 
     }
 
@@ -123,7 +140,7 @@ myList::myList(int data ){
         {
             parent = 0 ; 
             temp = first ;
-            for(int j =0   ; j<head->data-i ; j++)
+            for(int j =0   ; (j<head->data-i ) && temp->next ; j++)
             {
                 if(temp->data > temp->next->data) 
                 {
@@ -140,6 +157,8 @@ myList::myList(int data ){
 
             }
         }        
+
+        head->next = first ; 
     }
 
 
