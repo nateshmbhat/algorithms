@@ -20,7 +20,6 @@ void reverse(myList&  l)
 
 int main(void)
 {
-
     myList l1 ; 
     list<int> l2 ; 
     for(int i =0 ; i< 10 ; i++)
@@ -41,7 +40,6 @@ int main(void)
     for(auto i : l2 )
         cout<<i <<" -> " ;
     
-
     l1.populateList(10) ; 
     l1.Display() ; 
     reverse(l1) ;

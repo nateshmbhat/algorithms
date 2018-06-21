@@ -18,6 +18,7 @@ class myList{
     myList(int =0 ) ; 
     void setFirst(Node * ) ; 
     Node * get_first() ; 
+    Node * get_head() ; 
     Node * populateList(int , int =0  , int  = 30) ; 
 
     Node * append(int data) ; 

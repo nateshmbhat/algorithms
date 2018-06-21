@@ -3,7 +3,6 @@
 
 using namespace std ; 
 
-
 void linkswap(Node * l1 , Node * l2 , Node * parent)
 {
     l1->next = l2->next ; 
@@ -20,6 +19,8 @@ myList::myList(int data ){
     head->next = 0 ; 
     first =0 ; 
 }
+
+Node * myList::get_head() { return head ; }
 
 void myList::setFirst(Node * firstvar){first = firstvar ; }
 
