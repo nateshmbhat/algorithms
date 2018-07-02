@@ -23,22 +23,18 @@ class Tree
     Node * root ; 
     int n ;  
 
-    Tree(int data = 0  ){
-        root = new Node ; 
-        root->l = root->r = 0 ;
-        root->data = data ; 
-        n = 1 ; 
-    }
-
+    Tree(int = 0 ) ; 
     friend std::ostream& operator<<(std::ostream& , Tree&) ; 
 
+    Node * getRoot() ; 
     void inorder(Node * = (Node *) -1 ) ;
+    void prettyPrint(int = 60) ; 
     void preorder(Node * = (Node *) -1 ) ; 
     int findMax(Node * ) ; 
     bool isBST(Node * ) ; 
     void postorder(Node * = (Node *) -1 ) ; 
     void insertBST(int ) ;
-    Tree generateRandBST(int ) ; 
+    Tree generateRandBST(int  , int = 0 , int = 100) ; 
     Tree generateRandBT(int) ; 
 
 } ; 

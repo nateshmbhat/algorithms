@@ -6,30 +6,69 @@
 using namespace std; 
 
 
+void printSpace(int space){for(int i =0 ; i < space ; i++)cout<<" " ;}
+
 void Tree::insertBST(int data)
 {
-    Node * temp=root   ,* parent  = root; 
-    Node * newnode = new Node ; 
+    Node * newnode  = new Node; 
     newnode->l = newnode->r = 0 ; 
     newnode->data = data ; 
-    this->n++ ; ; 
+    Node * temp = this->root  , * parent = root ; 
+    this->n++ ; 
 
-    if(root==NULL)
-    {
-        root= newnode ; return ; 
+    while(temp){
+       parent = temp ; 
+       if(data<temp->data) temp = temp->l ;  
+       else temp = temp->r ; 
     }
-
-    while(temp)
-    {
-        parent = temp ; 
-        if(data<root->data)
-            temp = temp->l ; 
-        else temp = temp->r ; 
-    }
-    
-    if(data<parent->data) parent->l = newnode ; 
-    else parent->r = newnode ; 
+    if(parent->data<data) parent->r = newnode; else parent->l = newnode; 
 }
+
+bool isQueueNull(queue<Node*> myqueue){
+   //* Checks if all the elments in queue are null and returns true if so  */ 
+   while(!myqueue.empty())
+   { 
+        if(myqueue.front())return false ; 
+        myqueue.pop() ; 
+   }
+    return true ; 
+}
+
+Tree::Tree(int data ){
+
+        srand(time(NULL)) ; 
+        root = new Node ; 
+        root->l = root->r = 0 ;
+        root->data = data?data : rand()%50 ; 
+        n = 1 ; 
+    }
+
+
+
+void Tree::prettyPrint(int centerPosition){
+    queue<Node*> myqueue  ; 
+    myqueue.push(root) ; 
+    while(!isQueueNull(myqueue))
+    {
+        printSpace(centerPosition) ; 
+        int rowsize = myqueue.size() ; 
+        for(int i =0 ; i < rowsize ;i++)
+        {
+            if(myqueue.front()) cout<< myqueue.front()->data ; 
+            else cout<<"_" ; 
+            printSpace(2); 
+            myqueue.front()? myqueue.push(myqueue.front()->l) : myqueue.push(0) ;
+            myqueue.front()? myqueue.push(myqueue.front()->r) : myqueue.push(0) ;
+            myqueue.pop(); 
+        }
+        centerPosition-=2 ;
+        cout<<endl; 
+    }
+}
+
+Node * Tree::getRoot(){return root ; }
+
+
 
 void Tree::inorder(Node * rootvar )
 {
@@ -95,17 +134,12 @@ bool Tree::isBST(Node * root)
 }
 
 
-Tree Tree::generateRandBST(int no_of_nodes)
+Tree Tree::generateRandBST(int no_of_nodes , int randmin , int randmax )
 {
-    srand(time(NULL)) ; 
-    for(int i =0 ; i <no_of_nodes ; i++)
+    for(int i =0; i < no_of_nodes  ; i++)
     {
-        int nvar = rand()%250 ; 
-        if(nvar<=0 ) 
-            nvar = rand()%5 + 1 ; 
-        this->insertBST(nvar) ; 
+        this->insertBST((rand()%(randmax-randmin)) + randmin) ; 
     }
-
     return *this ; 
 }
 
