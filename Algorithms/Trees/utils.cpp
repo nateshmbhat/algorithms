@@ -7,6 +7,7 @@ using namespace std;
 
 
 void printSpace(int space){for(int i =0 ; i < space ; i++)cout<<" " ;}
+Node * newNode(int data) { Node * newnode = new Node ; newnode->l = newnode->r = 0 ; newnode->data = data ; return newnode ;  }
 
 void Tree::insertBST(int data)
 {
@@ -66,7 +67,42 @@ void Tree::prettyPrint(int centerPosition){
     }
 }
 
+
 Node * Tree::getRoot(){return root ; }
+
+Tree Tree::buildCustomTree(vector<int> levelOrderList)
+{
+    Tree res = *new Tree(levelOrderList[0]) ; 
+    queue<Node * > myqueue ; 
+    Node * root = res.getRoot() ; 
+    myqueue.push(root) ;
+
+    int j =1 ;
+    while(!myqueue.empty())
+    {
+        for(int i = 0 ; i<myqueue.size() ; i++ , j+=2)
+        {
+            if(levelOrderList[j]==0)
+                myqueue.front()->l = 0 ; 
+            else {
+                         myqueue.front()->l = newNode(levelOrderList[j]) ; 
+                         myqueue.push(myqueue.front()->l) ; 
+            }
+        
+            if(j+1<levelOrderList.size())
+            {
+                if(levelOrderList[j+1]==0)
+                    myqueue.front()->r =  0 ; 
+                else {
+                    myqueue.front()->r = newNode(levelOrderList[j+1]) ; 
+                    myqueue.push(myqueue.front()->r) ; 
+                }
+            }
+            myqueue.pop() ; 
+        }
+    }
+    return res ;
+}
 
 
 

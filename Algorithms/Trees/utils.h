@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+
 #ifndef TREES_H
 
 #include<ostream>
@@ -30,6 +32,7 @@ class Tree
     void inorder(Node * = (Node *) -1 ) ;
     void prettyPrint(int = 60) ; 
     void preorder(Node * = (Node *) -1 ) ; 
+    Tree buildCustomTree(std::vector<int>) ;
     int findMax(Node * ) ; 
     bool isBST(Node * ) ; 
     void postorder(Node * = (Node *) -1 ) ; 
