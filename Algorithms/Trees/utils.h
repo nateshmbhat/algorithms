@@ -31,6 +31,7 @@ class Tree
     Node * getRoot() ; 
     void inorder(Node * = (Node *) -1 ) ;
     void prettyPrint(int = 60) ; 
+    void addNode(int) ; 
     void preorder(Node * = (Node *) -1 ) ; 
     Tree buildCustomTree(std::vector<int>) ;
     int findMax(Node * ) ; 

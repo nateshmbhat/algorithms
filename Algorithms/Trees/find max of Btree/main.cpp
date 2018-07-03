@@ -1,17 +1,20 @@
 #include<bits/stdc++.h>
-#include<list>
 #include "../utils.h"
 
 using namespace std ; 
 
+int findMax(Node * root)
+{
+    if(!root) return INT_MIN ; 
+    return max(max(root->data , findMax(root->l)) , findMax(root->r)) ; 
+}
 
 int main(void)
 {
-    Tree T(10); 
-    T.generateRandBST(3) ; 
-
-    cout<<T <<endl; 
-    // T.inorder() ; 
-    // T.preorder() ; 
-    // cout<<T ; 
+    Tree tree(50) ; 
+    tree = tree.generateRandBT(10) ;
+    cout<<"inorder : "  ;  tree.inorder()  ; cout<<endl; 
+    cout<<"preorder : " ;  tree.preorder() ; cout<<endl; 
+    tree.prettyPrint() ; 
+    cout<<"\nMax is = " <<findMax(tree.getRoot()) ; 
 }

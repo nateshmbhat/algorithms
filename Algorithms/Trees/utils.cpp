@@ -9,6 +9,17 @@ using namespace std;
 void printSpace(int space){for(int i =0 ; i < space ; i++)cout<<" " ;}
 Node * newNode(int data) { Node * newnode = new Node ; newnode->l = newnode->r = 0 ; newnode->data = data ; return newnode ;  }
 
+
+void Tree::addNode( int data )
+{
+    Node * temp  = this->getRoot() ; 
+    while(temp->l){
+        temp = temp->l ;
+    }
+    temp->l = newNode(data)  ; 
+}
+
+
 void Tree::insertBST(int data)
 {
     Node * newnode  = new Node; 
@@ -22,7 +33,8 @@ void Tree::insertBST(int data)
        if(data<temp->data) temp = temp->l ;  
        else temp = temp->r ; 
     }
-    if(parent->data<data) parent->r = newnode; else parent->l = newnode; 
+    if(data < parent->data ) parent->l = newnode; 
+    else parent->r = newnode; 
 }
 
 bool isQueueNull(queue<Node*> myqueue){
@@ -179,9 +191,15 @@ Tree Tree::generateRandBST(int no_of_nodes , int randmin , int randmax )
     return *this ; 
 }
 
+
 Tree Tree::generateRandBT(int no_of_nodes)
 {
-    if(no_of_nodes) ; 
+    vector<int> arr ; 
+    for(int i =0 ; i < no_of_nodes ; i++)
+    {
+        arr.push_back(rand()%100) ; 
+    }
+    return buildCustomTree(arr) ; 
 }
 
 
