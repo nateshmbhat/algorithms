@@ -12,7 +12,7 @@ void linkswap(Node * l1 , Node * l2 , Node * parent)
 }
 
 
-myList::myList(int data ){
+myList::myList(){
     srand(time(NULL)) ; 
     head = new Node ; 
     head->data = 0 ;

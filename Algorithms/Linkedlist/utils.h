@@ -15,7 +15,7 @@ class myList{
 
     public : 
 
-    myList(int =0 ) ; 
+    myList() ; 
     void setFirst(Node * ) ; 
     Node * get_first() ; 
     Node * get_head() ; 
