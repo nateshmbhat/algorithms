@@ -61,7 +61,6 @@ void postorder(Node * root)
             cout<< root->data <<" " ; 
             root = 0 ;  
         }
-        
     }
 }
 
