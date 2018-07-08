@@ -90,10 +90,13 @@ Tree Tree::buildCustomTree(vector<int> levelOrderList)
     myqueue.push(root) ;
 
     int j =1 ;
+    bool breakflag = false ;  ;
+
     while(!myqueue.empty())
     {
         for(int i = 0 ; i<myqueue.size() ; i++ , j+=2)
         {
+            if(j>levelOrderList.size()){ breakflag = true  ; break ; } 
             if(levelOrderList[j]==0)
                 myqueue.front()->l = 0 ; 
             else {
@@ -112,6 +115,7 @@ Tree Tree::buildCustomTree(vector<int> levelOrderList)
             }
             myqueue.pop() ; 
         }
+        if(breakflag) break ; 
     }
     return res ;
 }
