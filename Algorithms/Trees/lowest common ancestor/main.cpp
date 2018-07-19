@@ -5,14 +5,14 @@ using namespace std;
 
 Node * lowestCommonAncestor(Node * root , int data1 , int data2)
 {
-    if(!root) return root ; 
-    if(data1==root->data || data2 ==root->data) return root ; 
+    if(!root) return 0 ; 
+    if(root->data ==data1 || root->data==data2) return root ; 
 
-    Node * left =  lowestCommonAncestor(root->l , data1 , data2) ; 
+    Node * left = lowestCommonAncestor(root->l , data1 , data2) ; 
     Node * right = lowestCommonAncestor(root->r , data1 , data2) ; 
 
-    if(left && right) return root ; 
-    return left ? left : right ; 
+    if(left && right) return root ;
+    return left ? left: right ; 
 }
 
 
@@ -22,6 +22,6 @@ int main(void)
    Tree tree = Tree().buildCustomTree(a) ; 
    
    tree.prettyPrint() ; 
-   Node * ans = lowestCommonAncestor(tree.getRoot() , 4 , 10) ; 
+   Node * ans = lowestCommonAncestor(tree.getRoot() , 4 , 9) ; 
    if(ans) cout << ans->data <<endl;
 }

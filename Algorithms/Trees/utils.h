@@ -26,13 +26,19 @@ class Tree
     int n ;  
 
     Tree(int = 0 ) ; 
+    ~Tree() ; 
     friend std::ostream& operator<<(std::ostream& , Tree&) ; 
 
     Node * getRoot() ; 
+    void setRoot(Node * ) ; 
+    void deallocateAllNodes(Node *) ; 
     void inorder(Node * = (Node *) -1 ) ;
     void prettyPrint(int = 60) ; 
     void addNode(int) ; 
     void preorder(Node * = (Node *) -1 ) ; 
+    
+    Node * buildTreeFromInorderPreorder(std::vector<int> , std::vector<int> ) ; 
+
     Tree buildCustomTree(std::vector<int>) ;
     int findMax(Node * ) ; 
     bool isBST(Node * ) ; 
@@ -40,6 +46,9 @@ class Tree
     void insertBST(int ) ;
     Tree generateRandBST(int  , int = 0 , int = 100) ; 
     Tree generateRandBT(int) ; 
+
+    private : 
+    Node * buildTreeFromInorderPreorderHelper(std::vector<int> , std::vector<int> , int ,int ,int,int ,std::unordered_map<int,int>& ) ; 
 
 } ; 
 

@@ -20,6 +20,53 @@ void Tree::addNode( int data )
 }
 
 
+Node * Tree::buildTreeFromInorderPreorderHelper(std::vector<int> inorder , std::vector<int> preorder , int inS , int inE , int preS , int PreE , unordered_map<int , int>& node_to_inorder_idx )
+{
+    if(inS>inE || preS>PreE) return  0 ; 
+    Node * root = new Node ; 
+
+    root->data = preorder[preS] ; 
+
+    int leftSize = node_to_inorder_idx[preorder[preS]] - inS ; 
+    // int rightSize = inE -  node_to_inorder_idx[preorder[preS]] ; 
+
+    root->l = buildTreeFromInorderPreorderHelper(inorder , preorder , inS , node_to_inorder_idx[root->data]-1 , preS+1 , preS+leftSize , node_to_inorder_idx) ;
+    root->r = buildTreeFromInorderPreorderHelper(inorder , preorder , node_to_inorder_idx[root->data]+1 , inE , preS+leftSize+1 , PreE  , node_to_inorder_idx) ;
+
+    return root ; 
+}
+
+Tree::~Tree()
+{
+    deallocateAllNodes(root) ; 
+}
+
+void Tree::deallocateAllNodes(Node * root)
+{
+    if(!root) return ; 
+    deallocateAllNodes(root->l) ; 
+    deallocateAllNodes(root->r) ; 
+    delete root ; 
+}
+
+void Tree::setRoot(Node * root)
+{
+    this->root = root ; 
+}
+
+
+Node * Tree::buildTreeFromInorderPreorder(std::vector<int> inorder , std::vector<int> preorder)
+{
+    unordered_map<int , int >  node_to_inorder_idx ; 
+    for(int i =0 ;i < inorder.size() ; i++) node_to_inorder_idx[inorder[i]] = i ; 
+
+    deallocateAllNodes(root) ; 
+    root = buildTreeFromInorderPreorderHelper(inorder , preorder , 0 , inorder.size()-1 , 0 , preorder.size()-1 , node_to_inorder_idx ) ; 
+}
+
+
+
+
 void Tree::insertBST(int data)
 {
     Node * newnode  = new Node; 
