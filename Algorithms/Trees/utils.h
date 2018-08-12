@@ -39,13 +39,13 @@ class Tree
     
     Node * buildTreeFromInorderPreorder(std::vector<int> , std::vector<int> ) ; 
 
-    Tree buildCustomTree(std::vector<int>) ;
+    static Tree buildCustomTree(std::vector<int>) ;
     int findMax(Node * ) ; 
     bool isBST(Node * ) ; 
     void postorder(Node * = (Node *) -1 ) ; 
     void insertBST(int ) ;
     Tree generateRandBST(int  , int = 0 , int = 100) ; 
-    Tree generateRandBT(int) ; 
+    static Tree generateRandBT(int) ; 
 
     private : 
     Node * buildTreeFromInorderPreorderHelper(std::vector<int> , std::vector<int> , int ,int ,int,int ,std::unordered_map<int,int>& ) ; 

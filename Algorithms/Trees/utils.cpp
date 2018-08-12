@@ -245,6 +245,7 @@ Tree Tree::generateRandBST(int no_of_nodes , int randmin , int randmax )
 
 Tree Tree::generateRandBT(int no_of_nodes)
 {
+    srand(time(0)) ;
     vector<int> arr ; 
     for(int i =0 ; i < no_of_nodes ; i++)
     {
