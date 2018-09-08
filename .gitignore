@@ -30,6 +30,7 @@ testing/*
 *.lib
 
 # Executables
+*.class
 *.exe
 *.out
 *.app
