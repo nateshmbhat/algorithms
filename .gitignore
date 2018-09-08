@@ -12,6 +12,7 @@
 # Precompiled Headers
 *.gch
 *.pch
+testing/*
 
 # Compiled Dynamic libraries
 *.so
