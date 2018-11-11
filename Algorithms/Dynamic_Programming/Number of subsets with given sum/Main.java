@@ -16,21 +16,17 @@ class Main{
     static int helperNonDp(int[] arr ,int sum , int i){
         callsNonDp+=1 ; 
         if(sum==0)return 1 ;
-        if(i<0)return 0 ; 
-        if(sum>=arr[i])return helperNonDp(arr, sum-arr[i], i-1) + helperNonDp(arr, sum, i-1) ; 
-        else return helperNonDp(arr, sum, i-1) ; 
+        if(i<0 || sum <0 )return 0 ; 
+        return helperNonDp(arr, sum-arr[i], i-1) + helperNonDp(arr, sum, i-1) ; 
     }
 
     static int helperDp(int[] arr ,int sum , int i , HashMap<String,Integer> mem){
         calls+=1 ; int r1=0 , r2 ; 
         if(mem.containsKey(""+i+"-"+sum)) return mem.get(""+i+"-"+sum); 
         if(sum==0)return 1 ;
-        if(i<0)return 0 ; 
-        if(sum>=arr[i]){ 
-            r1 = helperDp(arr, sum-arr[i], i-1 , mem) ;
-            r2 = helperDp(arr, sum, i-1 , mem ) ; 
-        }
-        else r2 = helperDp(arr, sum, i-1 , mem) ; 
+        if(i<0 || sum<0)return 0 ; 
+        r1 = helperDp(arr, sum-arr[i], i-1 , mem) ;
+        r2 = helperDp(arr, sum, i-1 , mem ) ; 
         mem.put(""+i+"-"+sum , (r1+r2)) ; 
         return r1+r2 ; 
     }
