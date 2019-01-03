@@ -55,6 +55,7 @@ int findkthlargest_bubblesort(vector<int> a , int k)
         }
         
     }
+    
     return a[a.size()-k] ; 
 }
 
@@ -63,6 +64,11 @@ int main()
 {
     srand(time(NULL)) ; 
     vector<int> a = {7, 10, 4, 3, 20, 15} ; 
+    partition_point(a.begin() , a.end() , 2) ; 
+    for(int i : a){
+        cout<<i<< " " ; 
+    }
+    cout<<endl; 
     int k = 4 ; 
     cout<< "ans = " <<findkthlargest_quickselect(a  , 0 , a.size()-1 , k ) <<endl; 
     cout<<"ans = "<< findkthlargest_bubblesort(a , k ) <<endl; 
