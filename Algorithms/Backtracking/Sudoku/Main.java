@@ -82,37 +82,6 @@ class Main{
     }
 
 
-    public static void writeToFile(int[][] board , int size){
-        PrintWriter writer = null ; 
-        try{
-            writer =  new PrintWriter(new BufferedWriter(new FileWriter("mydatafile", true)));
-        }
-        catch(Exception e){
-
-        }
-        writer.println("\n\n");
-        writer.println("[") ; 
-        for(int i =0 ; i< size ; i++){
-            writer.print("[") ; 
-            for(int j =0; j < size ; j++){
-                writer.print(board[i][j]+","); 
-            }
-            writer.print("],\n") ; 
-        }
-
-        writer.println("],") ; 
-        writer.close() ; 
-    }
-
-
-    public static void solveAndWriteToFile(int size , int number){
-        for(int i =0 ;i < number ; i++){
-            int [][] board = new int[size][size] ; 
-            solveSudoku(board, size , 0 , 0 )   ;
-            writeToFile(board , size ) ; 
-        }
-    }
- 
     public static void main(String[] args) {
         int size = 9 ; 
         int [][] board = new int[size][size] ; 
