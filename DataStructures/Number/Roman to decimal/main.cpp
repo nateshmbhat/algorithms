@@ -5,6 +5,7 @@ using namespace std;
 void roman_to_decimal(string roman)
 {
     unordered_map<char , int> M = {{'I'  , 1 } , {'V' , 5} , {'X' , 10 } , {'C' , 100} , {'L' , 50} , {'D' , 500} , {'M' , 1000 }} ; 
+    string s ; 
 
     int sum = M[roman.back()] ; 
 
