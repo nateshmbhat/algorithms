@@ -15,8 +15,8 @@ class Main{
 
     static int helperNonDp(int[] arr ,int sum , int i){
         callsNonDp+=1 ; 
-        if(sum==0)return 1 ;
         if(i<0 || sum <0 )return 0 ; 
+        if(sum==0)return 1 ;
         return helperNonDp(arr, sum-arr[i], i-1) + helperNonDp(arr, sum, i-1) ; 
     }
 
@@ -55,10 +55,10 @@ class Main{
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in) ; 
-        int arr[] = new int[]{1,24,25,26,28,29,30,31,33,37 ,2 ,3, 4 , 5 , 6,13,14,15,18,19 , 7 , 8 , 10 , 11 , 21 , 20 , 23 , 32,27,100} ; 
-        // int arr[] = new int[]{1,2,3,4,5,6} ; 
+        // int arr[] = new int[]{1,24,25,26,28,29,30,31,33,37 ,2 ,3, 4 , 5 , 6,13,14,15,18,19 , 7 , 8 , 10 , 11 , 21 , 20 , 23 , 32,27,100} ; 
+        int arr[] = new int[]{1,2,3,4,5,6} ; 
         // int arr[] = new int[]{1,2,7,5} ; 
-        int sum = 100 ; 
+        int sum = 10 ; 
         int res = noSubSets(arr, sum);
         System.out.println("TopDownDPCalls = " + calls + " Result = " + res + " NON DP = "+callsNonDp + " BottomUpDpCalls = " + callsBottomUpDp);
     }
