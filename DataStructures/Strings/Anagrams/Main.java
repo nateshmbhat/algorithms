@@ -10,8 +10,7 @@ class Main {
 		for (int test = 0; test < T; test++) {
 
 			String s1 = scan.next();
-			String s2 = scan.next();
-
+			String s2 = scan.next();	
 			HashMap<Character, Integer> map = new HashMap<>();
 
 			for (int i = 0; i < s1.length(); i++) {
