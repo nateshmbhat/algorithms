@@ -1,56 +1,33 @@
 import java.util.* ; 
 
 class Main{
-    static int nonDp = 0 ; 
-    static int Dp = 0 ; 
-    public static void main(String[] args) {
-        int[] arr = {10, 22, 9, 33, 21, 50, 41, 60, 80} ; 
-        // int[] arr ={3, 10, 2, 1, 20}  ; 
-        // int[] arr ={50, 3, 10, 7, 40, 80} ; 
-        LIS(arr) ; 
-    }
 
     public static void LIS(int [] arr){
-        System.out.println( LISHelperNonDp(arr, 0 , Integer.MIN_VALUE )+" calls = " + nonDp) ;
-        HashMap<String,Integer> mem = new HashMap<>() ; 
-        System.out.println( LISHelperDp(arr, 0 , Integer.MIN_VALUE , mem )+ " calls = " + Dp ) ;
+        System.out.println("normal : "+LISutil(arr , arr.length-1 , arr.length-1)) ; 
     }
 
-    public static int LISHelperNonDp(int[] arr , int i , int cur){
-        nonDp+=1 ; 
-        if(i>=arr.length)return 0 ; 
-        if(arr[i]>cur) return Math.max(1+LISHelperNonDp(arr, i+1, arr[i]), LISHelperNonDp(arr, i+1, cur)) ; 
-        else return LISHelperNonDp(arr, i+1, cur) ;
+    public static int LISutil(int[] arr , int i , int lastIncluded){
+        if(i<0)return 0 ;
+        if(arr[i]<=arr[lastIncluded])
+           return Math.max(1+LISutil(arr , i-1 , i ) , LISutil(arr, i-1, lastIncluded)) ;
+        return LISutil(arr, i-1, lastIncluded) ; 
     }
 
-
-    public static int LISHelperDp(int[] arr , int i , int cur , HashMap<String,Integer> mem){
-        Dp+=1 ;
-        if(mem.containsKey(""+i+'-'+cur)) return mem.get(""+i+'-'+cur) ; 
-        if(i>=arr.length)return 0 ; 
-        int res1=Integer.MIN_VALUE , res2 ; 
-        if(arr[i]>cur) {
-            res1 = 1+LISHelperDp(arr, i+1, arr[i] , mem ) ; 
-            res2 =  LISHelperDp(arr, i+1, cur , mem) ; 
-        }
-        else { 
-            res2 = LISHelperDp(arr, i+1 , cur , mem) ;
-        }
-        mem.put(""+i+"-"+cur, Math.max(res1,res2)) ; 
-        return Math.max(res1,res2) ; 
-    }
-
-    public static int LISHelperBottomUpDp(int[] arr){
-        ArrayList<Integer> lis = new ArrayList<>() ; 
-        for(int i =0 ;i < arr.length ; i++)lis.add(1) ; 
-        
-        for(int i =1 ;i < arr.length ; i++){
-            for(int j=0 ; j<i ; j++ )
-            {
-                if(arr[i]>arr[j] && lis[i]>list[j]){
-                    
+    public static int LISutilDP(int[] arr ){
+        int[][] mem = new int[100][100] ; 
+        for(int i =0 ;i <= arr.length ; i++){
+            for(int j = 0;j <=arr.length ; j++){
+                if(i==0)mem[i][j] =0 ; 
+                else {
+                    mem[i][j] = Math.max(1+mem[i-1][i] , mem[i-1][j]) ; 
                 }
             }
         }
+        return 1 ; 
+    }
+    
+    public static void main(String[] args) {
+        int[] arr = new int[]{10, 22, 9, 33, 21, 50, 41, 60, 80}; 
+        LIS(arr) ; 
     }
 }
