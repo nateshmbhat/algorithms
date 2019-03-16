@@ -1,0 +1,105 @@
+Enter number of productions : 3
+
+Enter production 0 (# for epsilon ) : S--0A
+
+Enter production 1 (# for epsilon ) : A--S1
+
+Enter production 2 (# for epsilon ) : A--1
+Enter production number for M[ A , $ ]  (-1 for empty)  : -1
+Enter production number for M[ A , 0 ]  (-1 for empty)  : 1
+Enter production number for M[ A , 1 ]  (-1 for empty)  : 2
+Enter production number for M[ S , $ ]  (-1 for empty)  : -1
+Enter production number for M[ S , 0 ]  (-1 for empty)  : 0
+Enter production number for M[ S , 1 ]  (-1 for empty)  : -1
+
+Enter the Input string : 0011
+
+
+STACK           INPUT           Action
+-------         ------          -------
+$S              0011$           O/P : S--0A
+$A0             0011$           MATCH 0
+$A              011$            O/P : A--S1
+$1S             011$            O/P : S--0A
+$1A0            011$            MATCH 0
+$1A             11$             O/P : A--1
+$11             11$             MATCH 1
+$1              1$              MATCH 1
+$               $               ACCEPT STRING :)
+
+
+
+---------------------------------------------------------------------
+
+
+
+Enter number of productions : 8
+
+Enter production 0 (# for epsilon ) : E->TA
+
+Enter production 1 (# for epsilon ) : A->+TA
+
+Enter production 2 (# for epsilon ) : A->#
+
+Enter production 3 (# for epsilon ) : T->FB
+
+Enter production 4 (# for epsilon ) : B->*FB
+
+Enter production 5 (# for epsilon ) : B->#
+
+Enter production 6 (# for epsilon ) : F->(E)
+
+Enter production 7 (# for epsilon ) : F->d
+Enter production number for M[ A , $ ]  (-1 for empty)  : 2
+Enter production number for M[ A , ( ]  (-1 for empty)  : -1
+Enter production number for M[ A , ) ]  (-1 for empty)  : 2
+Enter production number for M[ A , * ]  (-1 for empty)  : -1
+Enter production number for M[ A , + ]  (-1 for empty)  : 1
+Enter production number for M[ A , d ]  (-1 for empty)  : -1
+Enter production number for M[ B , $ ]  (-1 for empty)  : 5
+Enter production number for M[ B , ( ]  (-1 for empty)  : -1
+Enter production number for M[ B , ) ]  (-1 for empty)  : 5
+Enter production number for M[ B , * ]  (-1 for empty)  : 4
+Enter production number for M[ B , + ]  (-1 for empty)  : 5
+Enter production number for M[ B , d ]  (-1 for empty)  : -1
+Enter production number for M[ E , $ ]  (-1 for empty)  : -1
+Enter production number for M[ E , ( ]  (-1 for empty)  : 0
+Enter production number for M[ E , ) ]  (-1 for empty)  : -1
+Enter production number for M[ E , * ]  (-1 for empty)  : -1
+Enter production number for M[ E , + ]  (-1 for empty)  : -1
+Enter production number for M[ E , d ]  (-1 for empty)  : 0
+Enter production number for M[ F , $ ]  (-1 for empty)  : -1
+Enter production number for M[ F , ( ]  (-1 for empty)  : 6
+Enter production number for M[ F , ) ]  (-1 for empty)  : -1
+Enter production number for M[ F , * ]  (-1 for empty)  : -1
+Enter production number for M[ F , + ]  (-1 for empty)  : -1
+Enter production number for M[ F , d ]  (-1 for empty)  : 7
+Enter production number for M[ T , $ ]  (-1 for empty)  : -1
+Enter production number for M[ T , ( ]  (-1 for empty)  : 3
+Enter production number for M[ T , ) ]  (-1 for empty)  : -1
+Enter production number for M[ T , * ]  (-1 for empty)  : -1
+Enter production number for M[ T , + ]  (-1 for empty)  : -1
+Enter production number for M[ T , d ]  (-1 for empty)  : 3
+
+Enter the Input string : d+d*d
+
+
+STACK		INPUT		Action
+-------		------		-------
+$E		d+d*d$		O/P : E->TA
+$AT		d+d*d$		O/P : T->FB
+$ABF		d+d*d$		O/P : F->d
+$ABd		d+d*d$		MATCH d
+$AB		+d*d$		O/P : B->#
+$A		+d*d$		O/P : A->+TA
+$AT+		+d*d$		MATCH +
+$AT		d*d$		O/P : T->FB
+$ABF		d*d$		O/P : F->d
+$ABd		d*d$		MATCH d
+$AB		*d$		O/P : B->*FB
+$ABF*		*d$		MATCH *
+$ABF		d$		O/P : F->d
+$ABd		d$		MATCH d
+$AB		$		O/P : B->#
+$A		$		O/P : A->#
+$		$		ACCEPT STRING :)
