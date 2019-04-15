@@ -13,14 +13,16 @@ int N; //number of productions
 void getInput()
 {
     printf("\n ");
+    printf("Enter number of Productions : ") ; 
     scanf("%d", &N);
 
-    for (int i = 0; i < N; i++)
+    int i,j,t ; 
+    for (i = 0; i < N; i++)
     {
-        printf("\n ", i);
+        printf("\nEnter production %d : ", i);
         scanf("%s", productions[i]);
 
-        for (int j = 3; productions[i][j]; j++)
+        for (j = 3; productions[i][j]; j++)
         {
             if (isupper(productions[i][j]))
                 nonTerminals[productions[i][j]]++;
@@ -31,16 +33,16 @@ void getInput()
     terminals['#'] = 0 ; 
     terminals['$']++ ; 
 
-    for (int i = 0; i < MAX; i++)
+    for (i = 0; i < MAX; i++)
     {
         char nonTerm = i;
         if (nonTerminals[nonTerm] > 0)
         {
-            for (int t = 0; t < MAX; t++)
+            for (t = 0; t < MAX; t++)
             {
                 if (terminals[t] > 0)
                 {
-                    printf(" ", nonTerm, t);
+                    printf("Enter production number for M [ %c , %c ] : ", nonTerm, t);
                     fflush(stdin);
                     scanf("%d", &parseTable[nonTerm][t]);
                 }
@@ -56,8 +58,9 @@ void predictiveParsingAlgorithm()
 
     char input[MAX];
     int inputPointer = 0;
+    int k ; 
     int parseTableEntry;
-    printf("\n ");
+    printf("\nEnter the input string :");
     scanf("%s", input);
     strcat(input , "$") ; 
 
@@ -86,7 +89,7 @@ void predictiveParsingAlgorithm()
         else
         {
             printf("O/P : %s\n", productions[parseTableEntry]);
-            for (int k = strlen(productions[parseTableEntry]) - 1; k >= 3; k--)
+            for (k = strlen(productions[parseTableEntry]) - 1; k >= 3; k--)
             {
                 if (productions[parseTableEntry][k] != '#')
                     stack[++top] = productions[parseTableEntry][k];
