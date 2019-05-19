@@ -1,3 +1,6 @@
+
+// https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -24,6 +27,7 @@ class Main {
         mem.put(key , res) ; 
         return res ; 
     }
+
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
