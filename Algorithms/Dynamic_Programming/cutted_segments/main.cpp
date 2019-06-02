@@ -1,12 +1,10 @@
 // https://practice.geeksforgeeks.org/problems/cutted-segments/0
-
 #include <iostream>
 #include<bits/stdc++.h>
 
 using namespace std ;
 
 int mem[10000]  ; 
-
 
 int solve(int N , int x , int y , int z){
     
@@ -42,7 +40,7 @@ int bottomup(int N , int x , int y , int z){
 }
 
 int main() {
-	//code
+
 	int t ; cin>>t ; 
 	
 	for(int _= 0 ; _< t; _++){
