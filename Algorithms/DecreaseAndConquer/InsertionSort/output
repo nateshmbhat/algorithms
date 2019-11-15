@@ -1,0 +1,24 @@
+natesh@falcon:~/Desktop/ada-lab-sit/src/DecreaseAndConquer/InsertionSort$ ./a.out 
+
+1. Plot graph   2.InsertionSort 3.Exit
+Enter choice : 2
+
+Enter size of random array : 10
+Array is : 
+49 54 67 4 38 43 98 48 99 15 
+
+4 15 38 43 48 49 54 67 98 99 
+
+natesh@falcon:~/Desktop/ada-lab-sit/src/DecreaseAndConquer/InsertionSort$ ./a.out 
+
+1. Plot graph   2.InsertionSort 3.Exit
+Enter choice : 2
+
+Enter size of random array : 20
+Array is : 
+89 72 81 0 33 56 21 86 37 84 47 40 83 18 8 24 82 86 52 78 
+
+0 8 18 21 24 33 37 40 47 52 56 72 78 81 82 83 84 86 86 89 
+
+natesh@falcon:~/Desktop/ada-lab-sit/src/DecreaseAndConquer/InsertionSort$ 
+

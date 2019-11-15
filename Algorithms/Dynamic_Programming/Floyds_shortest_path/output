@@ -1,0 +1,29 @@
+Enter number of verticies : 5
+Enter the weight matrix (9999 indicates infinity) : 
+0 9999 3 9999 9999
+9999 7 0 1 9999
+2 0 9999 9999 9999
+6 9999 9999 0 4
+9999 2 9999 9999 0
+
+
+Shortest Path matrix is : 
+0 3 3 4 8 
+2 0 0 1 5 
+2 0 0 1 5 
+6 6 6 0 4 
+4 2 2 3 0 
+user2018@dell-3669:~/Documents/NateshMBhat/DynamicProgramming/Floyds_shortest_path$ ./a.out 
+Enter number of verticies : 4
+Enter the weight matrix (9999 indicates infinity) : 
+0 9999 3 9999
+2 0 9999 9999
+9999 7 0 1
+6 9999 9999 0
+
+
+Shortest Path matrix is : 
+0 10 3 4 
+2 0 5 6 
+7 7 0 1 
+6 16 9 0

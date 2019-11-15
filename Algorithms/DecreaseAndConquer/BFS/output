@@ -1,0 +1,47 @@
+Enter the number of vertices : 5
+Enter adjancency matrix :
+0 1 1 0 0
+1 0 0 1 1
+1 0 0 0 0
+0 1 0 0 0
+0 1 0 0 0
+Enter source vertex : 1
+1 2 3 4 5
+
+
+Vertex 1 reachable
+
+Vertex 2 reachable
+
+Vertex 3 reachable
+
+Vertex 4 reachable
+
+Vertex 5 reachable
+
+
+---------------------------------------
+
+
+Enter the number of vertices : 5
+Enter adjancency matrix :
+0 1 1 1 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 1 0
+Enter source vertex : 5
+5 4
+
+
+Vertex 1 not reachable
+
+Vertex 2 not reachable
+
+Vertex 3 not reachable
+
+Vertex 4 reachable
+
+Vertex 5 reachable
+
+

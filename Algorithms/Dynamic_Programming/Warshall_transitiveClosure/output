@@ -1,0 +1,13 @@
+Enter number of verticies : 4
+Enter the adjacency matrix : 
+0 1 0 0
+0 0 0 1
+0 0 0 0
+1 0 1 0
+
+
+Transitive Closure is : 
+1 1 1 1 
+1 1 1 1 
+0 0 0 0 
+1 1 1 1

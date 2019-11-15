@@ -1,0 +1,15 @@
+Enter n : 6 
+Enter k : 2
+C(n,k) = 15
+
+
+user2018@dell-3669:~/Documents/NateshMBhat/DynamicProgramming/binomialCoefficient$ ./a.out 
+Enter n : 7
+Enter k : 3
+C(n,k) = 35
+
+
+user2018@dell-3669:~/Documents/NateshMBhat/DynamicProgramming/binomialCoefficient$ ./a.out 
+Enter n : 10
+Enter k : 5
+C(n,k) = 252

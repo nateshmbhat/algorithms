@@ -1,0 +1,44 @@
+
+natesh@falcon:~/Desktop/ada-lab-sit/src/DecreaseAndConquer/DFS$ ./a.out
+Enter the number of vertices : 5
+Enter adjancency matrix :
+0 0 1 0 0
+0 0 1 0 0
+0 0 0 1 1
+0 0 0 0 0
+0 0 0 0 0
+Enter source vertex : 1
+
+Vertex 1 reachable
+
+Vertex 2 not reachable
+
+Vertex 3 reachable
+
+Vertex 4 reachable
+
+Vertex 5 reachable
+
+
+-------------------------------------------------------------------------------
+
+
+natesh@falcon:~/Desktop/ada-lab-sit/src/DecreaseAndConquer/DFS$ ./a.out
+Enter the number of vertices : 5
+Enter adjancency matrix :
+0 1 1 1 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 1 0
+Enter source vertex : 1
+
+Vertex 1 reachable
+
+Vertex 2 reachable
+
+Vertex 3 reachable
+
+Vertex 4 reachable
+
+Vertex 5 not reachable
